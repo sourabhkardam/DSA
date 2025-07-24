@@ -32,6 +32,7 @@ public class StringPermutation {
 			System.out.print(inputStr + " ");
 			return;
 		}
+		
 		for (int i = leftIndex; i <= rightIndex; i++) {
 			// doing the swap
 			swap(inputStr, leftIndex, i);
