@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
@@ -46,12 +47,15 @@ public class GroupAnagram {
 	// Time Complexity: n x k log k where n = no. of words and k = max length of a
 	// word
 	private static ArrayList<List<String>> groupAnagramsUsingStream(String[] input) {
-		ArrayList<List<String>> arrayList = new ArrayList<>(Arrays.stream(input).collect(Collectors.groupingBy(str -> {
+		Map<String, List<String>> map = Arrays.stream(input).collect(Collectors.groupingBy(str -> {
 			char[] chars = str.toCharArray();
 			Arrays.sort(chars);
 			return new String(chars);
-		})).values());
-		return arrayList;
+		}));
+		
+		System.out.println(map);
+		
+		return new ArrayList<>(map.values());
 	}
 
 	private static ArrayList<ArrayList<String>> groupAnagrams(String[] arr) {
